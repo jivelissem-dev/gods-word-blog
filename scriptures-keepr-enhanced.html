@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scriptures Keepr | Thy Word is a Lamp unto My Feet ✨</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Quicksand:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+/* ═══════════════════════════════════════════════════════════════
+   SCRIPTURES KEEPR — ENHANCED DIVINE CRYSTAL MAXIMALISM
+   Ultra-Interactive Pastel 3D Holographic Aesthetic
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --rose: #fda4af;
+  --peach: #fdba74;
+  --lemon: #fef08a;
+  --mint: #6ee7b7;
+  --sky: #7dd3fc;
+  --lavender: #c4b5fd;
+  --lilac: #f5d0fe;
+  --teal: #2dd4bf;
+  --deep: #0d9488;
+  --violet: #7c3aed;
+  --neon-pink: #ff006e;
+  --neon-blue: #00f5ff;
+  --neon-green: #39ff14;
+  --neon-purple: #bf00ff;
+  --glass: rgba(255,255,255,0.45);
+  --glass-b: rgba(255,255,255,0.7);
+  --shadow: rgba(196,181,253,0.15);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+  background: #f0f9ff;
+  transition: background 0.5s ease;
+}
+
+body.dark-mode {
+  background: #1a0033;
+  color: #e0e0e0;
+}
+
+/* ── CUSTOM CURSOR ──────────────────────────────── */
+#cursor-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, var(--neon-purple) 50%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 8px var(--neon-purple), 0 0 40px 15px var(--neon-blue);
+  transition: all 0.1s;
+  mix-blend-mode: screen;
+}
+
+#cursor-glow.hover {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, var(--neon-pink) 0%, var(--neon-purple) 50%, transparent 100%);
+}
+
+/* ── READING PROGRESS BAR ──────────────────────── */
+#reading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-blue), var(--neon-green));
+  background-size: 200% 100%;
+  animation: progressShine 3s linear infinite;
+  box-shadow: 0 0 20px var(--neon-purple);
+  transition: width 0.1s linear;
+}
+
+@keyframes progressShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ── ANIMATED BACKGROUND ───────────────────────── */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background: linear-gradient(-45deg,
+    #fff0f9, #e8e0ff, #e0f2fe, #f0fdf4,
+    #fdf4ff, #fff7ed, #ecfdf5, #fef9c3);
+  background-size: 800% 800%;
+  animation: bgPulse 20s ease infinite;
+}
+
+body.dark-mode #bg-canvas {
+  background: linear-gradient(-45deg,
+    #1a0033, #0d1b2a, #1b263b, #0f2027,
+    #2d1b4e, #1a1a2e, #16213e, #0f0f0f);
+  background-size: 800% 800%;
+}
+
+@keyframes bgPulse {
+  0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  33% { background-position: 50% 100%; filter: hue-rotate(10deg); }
+  66% { background-position: 100% 50%; filter: hue-rotate(-8deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+}
+
+/* ── PARTICLE CANVAS ───────────────────────────── */
+#particle-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── FLOATING ACTION BUTTONS ───────────────────── */
+.fab-container {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(191, 0, 255, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fabPulse 2s ease-in-out infinite;
+}
+
+.fab:hover {
+  transform: scale(1.2) rotate(15deg);
+  box-shadow: 0 12px 40px rgba(191, 0, 255, 0.6);
+}
+
+@keyframes fabPulse {
+  0%, 100% { box-shadow: 0 8px 30px rgba(191, 0, 255, 0.4); }
+  50% { box-shadow: 0 8px 30px rgba(191, 0, 255, 0.8), 0 0 0 10px rgba(191, 0, 255, 0.1); }
+}
+
+/* ── SCROLL TO TOP BUTTON ──────────────────────── */
+#scroll-top {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-blue), var(--teal));
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 245, 255, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scroll-top:hover {
+  transform: scale(1.2) translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 245, 255, 0.6);
+}
+
+/* ── THEME TOGGLE ──────────────────────────────── */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  width: 70px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--lavender), var(--sky));
+  border-radius: 50px;
+  border: 2px solid white;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(196, 181, 253, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode #theme-toggle {
+  background: linear-gradient(135deg, #1a0033, #2d1b4e);
+}
+
+#theme-toggle::after {
+  content: '☀️';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #theme-toggle::after {
+  content: '🌙';
+  left: 34px;
+}
+
+/* ── ANNOUNCEMENT BAR ──────────────────────────── */
+#announce-bar {
+  position: relative;
+  z-index: 100;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-blue), var(--neon-green), var(--neon-pink));
+  background-size: 400% 100%;
+  animation: barGrad 8s linear infinite;
+  padding: 0.8rem 0;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(255, 0, 110, 0.3);
+}
+
+@keyframes barGrad {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+.bar-text {
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ── HERO SECTION ──────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(3rem, 10vw, 7rem);
+  background: linear-gradient(135deg, var(--neon-pink) 0%, var(--neon-purple) 30%, var(--neon-blue) 60%, var(--neon-green) 100%);
+  background-size: 300% 300%;
+  animation: heroGrad 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  filter: drop-shadow(0 8px 40px rgba(255, 0, 110, 0.6));
+  text-shadow: 0 0 80px rgba(255, 0, 110, 0.8);
+}
+
+@keyframes heroGrad {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-sub {
+  font-size: 13px;
+  letter-spacing: 0.6em;
+  color: var(--violet);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease 0.5s both;
+}
+
+body.dark-mode .hero-sub {
+  color: var(--neon-blue);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1s ease 1s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-btn {
+  padding: 18px 40px;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  box-shadow: 0 10px 40px rgba(191, 0, 255, 0.4);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 60px rgba(191, 0, 255, 0.6);
+}
+
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--violet);
+  border: 2px solid var(--neon-purple);
+  box-shadow: 0 10px 40px rgba(196, 181, 253, 0.3);
+}
+
+body.dark-mode .hero-btn-secondary {
+  background: rgba(45, 20, 75, 0.8);
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+}
+
+.hero-btn-secondary:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: var(--neon-purple);
+  color: white;
+  box-shadow: 0 15px 60px rgba(196, 181, 253, 0.6);
+}
+
+/* ── VERSE CARDS SECTION ───────────────────────── */
+.verse-section {
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.section-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, var(--deep), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 4px 20px rgba(196, 181, 253, 0.4));
+}
+
+body.dark-mode .section-title {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.verse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.verse-card {
+  background: var(--glass-b);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 40px 30px;
+  border: 2px solid rgba(196, 181, 253, 0.3);
+  box-shadow: 0 15px 50px rgba(196, 181, 253, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+body.dark-mode .verse-card {
+  background: rgba(45, 20, 75, 0.6);
+  border-color: rgba(191, 0, 255, 0.4);
+}
+
+.verse-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+
+.verse-card:hover::before {
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.verse-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 25px 80px rgba(196, 181, 253, 0.4), 0 0 60px rgba(255, 0, 110, 0.2);
+  border-color: var(--neon-purple);
+}
+
+.verse-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  filter: drop-shadow(0 4px 15px rgba(196, 181, 253, 0.5));
+}
+
+.verse-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--violet);
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+body.dark-mode .verse-text {
+  color: var(--neon-blue);
+}
+
+.verse-ref {
+  font-size: 14px;
+  color: var(--deep);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+body.dark-mode .verse-ref {
+  color: var(--neon-green);
+}
+
+/* ── INTERACTIVE SCRIPTURE ROTATOR ─────────────── */
+.scripture-rotator {
+  max-width: 900px;
+  margin: 6rem auto;
+  padding: 60px 40px;
+  background: var(--glass-b);
+  backdrop-filter: blur(30px);
+  border-radius: 40px;
+  border: 3px solid rgba(196, 181, 253, 0.4);
+  box-shadow: 0 20px 80px rgba(196, 181, 253, 0.3);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .scripture-rotator {
+  background: rgba(45, 20, 75, 0.7);
+  border-color: rgba(191, 0, 255, 0.5);
+}
+
+.rotator-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 28px;
+  color: var(--violet);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+body.dark-mode .rotator-title {
+  color: var(--neon-purple);
+}
+
+#sc-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-style: italic;
+  color: var(--deep);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  transition: opacity 0.5s;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-mode #sc-text {
+  color: var(--neon-blue);
+}
+
+#sc-ref {
+  font-size: 18px;
+  color: var(--violet);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: opacity 0.5s;
+}
+
+body.dark-mode #sc-ref {
+  color: var(--neon-green);
+}
+
+.rotator-btn {
+  margin-top: 30px;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(191, 0, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.rotator-btn:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 15px 50px rgba(191, 0, 255, 0.6);
+}
+
+/* ── PRAYER REQUEST SECTION ────────────────────── */
+.prayer-section {
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.prayer-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--glass-b);
+  backdrop-filter: blur(25px);
+  border-radius: 40px;
+  padding: 60px 40px;
+  border: 3px solid rgba(196, 181, 253, 0.4);
+  box-shadow: 0 20px 80px rgba(196, 181, 253, 0.3);
+}
+
+body.dark-mode .prayer-container {
+  background: rgba(45, 20, 75, 0.7);
+  border-color: rgba(191, 0, 255, 0.5);
+}
+
+.prayer-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--violet), var(--deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .prayer-title {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.prayer-subtitle {
+  text-align: center;
+  color: var(--deep);
+  font-size: 16px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+body.dark-mode .prayer-subtitle {
+  color: var(--neon-blue);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--violet);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+body.dark-mode .form-label {
+  color: var(--neon-purple);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(196, 181, 253, 0.4);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: var(--deep);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-textarea {
+  background: rgba(45, 20, 75, 0.5);
+  border-color: rgba(191, 0, 255, 0.4);
+  color: var(--neon-blue);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 30px rgba(191, 0, 255, 0.3);
+  transform: scale(1.02);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(191, 0, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.form-submit:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 60px rgba(191, 0, 255, 0.6);
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, var(--mint), var(--teal));
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+  animation: successPop 0.5s ease;
+}
+
+@keyframes successPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── VERSE SEARCH ──────────────────────────────── */
+.search-section {
+  padding: 6rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 20px 60px 20px 25px;
+  border-radius: 50px;
+  border: 3px solid rgba(196, 181, 253, 0.4);
+  background: var(--glass-b);
+  backdrop-filter: blur(20px);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  color: var(--deep);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .search-input {
+  background: rgba(45, 20, 75, 0.7);
+  border-color: rgba(191, 0, 255, 0.5);
+  color: var(--neon-blue);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 40px rgba(191, 0, 255, 0.4);
+}
+
+.search-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(191, 0, 255, 0.4);
+}
+
+.search-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 30px rgba(191, 0, 255, 0.6);
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.search-result-card {
+  background: var(--glass-b);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 30px;
+  border: 2px solid rgba(196, 181, 253, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+body.dark-mode .search-result-card {
+  background: rgba(45, 20, 75, 0.6);
+  border-color: rgba(191, 0, 255, 0.4);
+}
+
+.search-result-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(196, 181, 253, 0.4);
+  border-color: var(--neon-purple);
+}
+
+/* ── SPIRITUAL TIMELINE ────────────────────────── */
+.timeline-section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  padding: 40px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--neon-purple), var(--neon-pink), var(--neon-blue));
+  box-shadow: 0 0 20px var(--neon-purple);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: calc(50% + 40px);
+  margin-bottom: 60px;
+  position: relative;
+  animation: slideInLeft 0.6s ease;
+}
+
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+  padding-left: calc(50% + 40px);
+  padding-right: 0;
+  animation: slideInRight 0.6s ease;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.timeline-content {
+  background: var(--glass-b);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 30px;
+  border: 2px solid rgba(196, 181, 253, 0.4);
+  box-shadow: 0 15px 50px rgba(196, 181, 253, 0.2);
+  max-width: 450px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .timeline-content {
+  background: rgba(45, 20, 75, 0.6);
+  border-color: rgba(191, 0, 255, 0.4);
+}
+
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 70px rgba(196, 181, 253, 0.4);
+  border-color: var(--neon-purple);
+}
+
+.timeline-icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(191, 0, 255, 0.5);
+  z-index: 10;
+}
+
+.timeline-date {
+  font-size: 14px;
+  color: var(--violet);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+body.dark-mode .timeline-date {
+  color: var(--neon-purple);
+}
+
+.timeline-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 22px;
+  color: var(--deep);
+  margin-bottom: 12px;
+}
+
+body.dark-mode .timeline-title {
+  color: var(--neon-blue);
+}
+
+.timeline-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--violet);
+}
+
+body.dark-mode .timeline-text {
+  color: var(--neon-green);
+}
+
+/* ── FOOTER ────────────────────────────────────── */
+.footer {
+  background: linear-gradient(135deg, rgba(45, 20, 75, 0.95), rgba(26, 0, 51, 0.95));
+  backdrop-filter: blur(20px);
+  padding: 4rem 2rem 2rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.344 0L13.858 8.485 15.272 9.9l7.9-7.9h-.828zm5.656 0l-8.485 8.485 1.414 1.414L28.828 0h-.828zm5.656 0l-8.485 8.485 1.415 1.414L34.142 0h-.828zm5.657 0l-8.486 8.485 1.415 1.414L39.8 0h-.83zM0 5.373l.828-.83L2.243 5.96 0 8.2V5.374zm0 5.656l3.657-3.657L5.07 8.787 0 13.857v-2.828zm0 5.657L6.485 10.2 7.9 11.616l-7.9 7.9v-2.83zm0 5.657l8.485-8.486L9.9 15.272l-9.9 9.9v-.828zm0 5.656l8.485-8.485 1.414 1.414L0 28.828v-.828zm0 5.657l8.485-8.486 1.415 1.415-9.9 9.9v-.83zM54.627 60l.83-.828-1.415-1.414L51.8 60h2.827zm-48.254 0l-.83-.828 1.414-1.414L10.2 60H7.374zM48.97 60l3.657-3.657-1.414-1.414L46.143 60h2.828zm-37.94 0l3.657-3.657L8.787 54.93 3.716 60H11.03zm32.284 0l6.485-6.485-1.415-1.414-7.9 7.9h2.83zm-26.628 0l6.485-6.485L11.616 52.1l-7.9 7.9h2.83zm5.657 0l8.486-8.485-1.414-1.414-7.9 7.9h.828zm5.656 0l8.485-8.485-1.414-1.414-7.9 7.9h.828zm5.657 0l8.485-8.485-1.414-1.415-7.9 7.9h.828zm5.656 0l8.486-8.486-1.415-1.414-7.9 7.9h.83zM60 54.627l-.828.83-1.414-1.414L60 51.8v2.827zm0-5.656l-3.657 3.657-1.414-1.414L60 46.143v2.828zm0-5.657l-6.485 6.485-1.414-1.414 7.9-7.9v2.83zm0-5.657l-8.485 8.485-1.414-1.414 9.9-9.9v.828zm0-5.656l-8.485 8.485-1.414-1.414 9.9-9.9v.828zm0-5.657l-8.485 8.485-1.415-1.414 9.9-9.9v.83z' fill='%23bf00ff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 10;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(191, 0, 255, 0.4);
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1) rotate(15deg);
+  box-shadow: 0 10px 40px rgba(191, 0, 255, 0.6);
+}
+
+.footer-text {
+  font-size: 14px;
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+}
+
+.footer-heart {
+  display: inline-block;
+  color: var(--neon-pink);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* ── MOBILE RESPONSIVE ─────────────────────────── */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .verse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    padding-left: 80px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
+  .timeline-icon {
+    left: 30px;
+  }
+
+  .fab-container {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .fab {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  #scroll-top {
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    bottom: 100px;
+  }
+}
+
+/* ── ANIMATION CLASSES ─────────────────────────── */
+.fade-in {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.6s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.6s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── SCROLL REVEAL ─────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── LOADING SPINNER ───────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── EMAIL CAPTURE MODAL ───────────────────────── */
+.email-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.email-modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.email-modal {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 249, 255, 0.98));
+  backdrop-filter: blur(30px);
+  border-radius: 40px;
+  max-width: 550px;
+  width: 100%;
+  padding: 50px 40px;
+  position: relative;
+  border: 3px solid rgba(196, 181, 253, 0.5);
+  box-shadow: 0 30px 100px rgba(196, 181, 253, 0.5), 0 0 80px rgba(191, 0, 255, 0.3);
+  animation: modalSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+body.dark-mode .email-modal {
+  background: linear-gradient(135deg, rgba(45, 20, 75, 0.98), rgba(26, 0, 51, 0.98));
+  border-color: rgba(191, 0, 255, 0.6);
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: scale(0.8) translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.email-modal::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(191, 0, 255, 0.1), transparent);
+  animation: modalShimmer 3s linear infinite;
+}
+
+@keyframes modalShimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.email-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(196, 181, 253, 0.4);
+  color: var(--violet);
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+body.dark-mode .email-modal-close {
+  background: rgba(45, 20, 75, 0.9);
+  color: var(--neon-pink);
+  border-color: rgba(191, 0, 255, 0.5);
+}
+
+.email-modal-close:hover {
+  transform: rotate(90deg) scale(1.1);
+  background: var(--neon-pink);
+  color: white;
+  border-color: var(--neon-pink);
+  box-shadow: 0 5px 20px rgba(255, 0, 110, 0.5);
+}
+
+.email-modal-icon {
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: iconFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 5px 20px rgba(196, 181, 253, 0.5));
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.email-modal-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--violet), var(--deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+body.dark-mode .email-modal-title {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.email-modal-text {
+  text-align: center;
+  color: var(--deep);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+body.dark-mode .email-modal-text {
+  color: var(--neon-blue);
+}
+
+.email-modal-verse {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--violet);
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(196, 181, 253, 0.1);
+  border-radius: 20px;
+  border-left: 4px solid var(--neon-purple);
+}
+
+body.dark-mode .email-modal-verse {
+  color: var(--neon-green);
+  background: rgba(191, 0, 255, 0.1);
+}
+
+.email-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.email-modal-input {
+  width: 100%;
+  padding: 18px 25px;
+  border-radius: 50px;
+  border: 2px solid rgba(196, 181, 253, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: var(--deep);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .email-modal-input {
+  background: rgba(45, 20, 75, 0.6);
+  border-color: rgba(191, 0, 255, 0.5);
+  color: var(--neon-blue);
+}
+
+.email-modal-input:focus {
+  outline: none;
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 30px rgba(191, 0, 255, 0.3);
+  transform: scale(1.02);
+}
+
+.email-modal-input::placeholder {
+  color: rgba(124, 58, 237, 0.5);
+}
+
+body.dark-mode .email-modal-input::placeholder {
+  color: rgba(0, 245, 255, 0.5);
+}
+
+.email-modal-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.email-modal-submit,
+.email-modal-decline {
+  flex: 1;
+  padding: 18px;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.email-modal-submit {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  box-shadow: 0 10px 40px rgba(191, 0, 255, 0.4);
+}
+
+.email-modal-submit:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 60px rgba(191, 0, 255, 0.6);
+}
+
+.email-modal-decline {
+  background: rgba(196, 181, 253, 0.2);
+  color: var(--violet);
+  border: 2px solid rgba(196, 181, 253, 0.4);
+}
+
+body.dark-mode .email-modal-decline {
+  background: rgba(45, 20, 75, 0.5);
+  color: var(--neon-blue);
+  border-color: rgba(191, 0, 255, 0.4);
+}
+
+.email-modal-decline:hover {
+  background: rgba(196, 181, 253, 0.3);
+  transform: translateY(-3px);
+  border-color: var(--violet);
+}
+
+body.dark-mode .email-modal-decline:hover {
+  background: rgba(45, 20, 75, 0.8);
+  border-color: var(--neon-purple);
+}
+
+.email-modal-success {
+  text-align: center;
+  display: none;
+}
+
+.email-modal-success.show {
+  display: block;
+  animation: successFade 0.5s ease;
+}
+
+@keyframes successFade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.email-success-icon {
+  font-size: 80px;
+  color: var(--mint);
+  margin-bottom: 20px;
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.email-success-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 28px;
+  color: var(--deep);
+  margin-bottom: 15px;
+}
+
+body.dark-mode .email-success-title {
+  color: var(--neon-blue);
+}
+
+.email-success-text {
+  font-size: 16px;
+  color: var(--violet);
+  line-height: 1.6;
+}
+
+body.dark-mode .email-success-text {
+  color: var(--neon-green);
+}
+
+/* Mobile Optimization for Email Modal */
+@media (max-width: 768px) {
+  .email-modal {
+    max-width: 95%;
+    padding: 40px 25px;
+    border-radius: 30px;
+  }
+  
+  .email-modal-title {
+    font-size: 24px;
+  }
+  
+  .email-modal-text {
+    font-size: 14px;
+  }
+  
+  .email-modal-verse {
+    font-size: 16px;
+    padding: 15px;
+  }
+  
+  .email-modal-icon {
+    font-size: 48px;
+  }
+  
+  .email-modal-buttons {
+    flex-direction: column;
+  }
+  
+  .email-modal-submit,
+  .email-modal-decline {
+    width: 100%;
+  }
+  
+  .email-modal-close {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Background Canvas -->
+  <div id="bg-canvas"></div>
+  
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+  
+  <!-- Reading Progress Bar -->
+  <div id="reading-bar"></div>
+  
+  <!-- Custom Cursor -->
+  <div id="cursor-glow"></div>
+  
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme"></button>
+  
+  <!-- Floating Action Buttons -->
+  <div class="fab-container">
+    <button class="fab" onclick="scrollToSection('prayer-section')" aria-label="Prayer Request">
+      <i class="fas fa-praying-hands"></i>
+    </button>
+    <button class="fab" onclick="scrollToSection('search-section')" aria-label="Search Verses">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+  
+  <!-- Scroll to Top -->
+  <button id="scroll-top" onclick="scrollToTop()" aria-label="Scroll to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Announcement Bar -->
+  <div id="announce-bar">
+    <div class="bar-text">
+      ✨ WELCOME TO YOUR DIVINE SANCTUARY ✨ DISCOVER PEACE & INSPIRATION ✨ NEW VERSES DAILY ✨ JOIN OUR SPIRITUAL COMMUNITY ✨ 
+    </div>
+  </div>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="hero-title">Scriptures Keepr</h1>
+    <p class="hero-sub">Thy Word is a Lamp unto My Feet</p>
+    <div class="hero-buttons">
+      <button class="hero-btn hero-btn-primary" onclick="scrollToSection('verse-section')">
+        Explore Verses
+      </button>
+      <button class="hero-btn hero-btn-secondary" onclick="scrollToSection('prayer-section')">
+        Share Your Prayer
+      </button>
+    </div>
+  </section>
+  
+  <!-- Featured Verses Section -->
+  <section id="verse-section" class="verse-section reveal">
+    <h2 class="section-title">✨ Featured Scriptures</h2>
+    <div class="verse-grid">
+      <div class="verse-card">
+        <span class="verse-icon">🌟</span>
+        <p class="verse-text">"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."</p>
+        <p class="verse-ref">— Jeremiah 29:11</p>
+      </div>
+      
+      <div class="verse-card">
+        <span class="verse-icon">✝️</span>
+        <p class="verse-text">"I can do all things through Christ who strengthens me."</p>
+        <p class="verse-ref">— Philippians 4:13</p>
+      </div>
+      
+      <div class="verse-card">
+        <span class="verse-icon">💫</span>
+        <p class="verse-text">"Be still and know that I am God."</p>
+        <p class="verse-ref">— Psalm 46:10</p>
+      </div>
+      
+      <div class="verse-card">
+        <span class="verse-icon">🕊️</span>
+        <p class="verse-text">"The Lord is my shepherd; I shall not want."</p>
+        <p class="verse-ref">— Psalm 23:1</p>
+      </div>
+      
+      <div class="verse-card">
+        <span class="verse-icon">💖</span>
+        <p class="verse-text">"She is clothed with strength and dignity, and she laughs without fear of the future."</p>
+        <p class="verse-ref">— Proverbs 31:25</p>
+      </div>
+      
+      <div class="verse-card">
+        <span class="verse-icon">🌈</span>
+        <p class="verse-text">"Trust in the Lord with all your heart and lean not on your own understanding."</p>
+        <p class="verse-ref">— Proverbs 3:5</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Scripture Rotator -->
+  <div class="scripture-rotator reveal">
+    <h3 class="rotator-title">Daily Inspiration</h3>
+    <p id="sc-text">"For I know the plans I have for you, declares the Lord, plans to prosper you."</p>
+    <p id="sc-ref">— Jeremiah 29:11</p>
+    <button class="rotator-btn" onclick="newVerse()">
+      <i class="fas fa-sync-alt"></i> New Verse
+    </button>
+  </div>
+  
+  <!-- Verse Search Section -->
+  <section id="search-section" class="search-section reveal">
+    <h2 class="section-title">🔍 Search Scriptures</h2>
+    <div class="search-box">
+      <input type="text" class="search-input" id="verse-search" placeholder="Search for hope, strength, peace...">
+      <button class="search-btn" onclick="searchVerses()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </section>
+  
+  <!-- Timeline Section -->
+  <section class="timeline-section reveal">
+    <h2 class="section-title">🌟 Spiritual Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">Day 1</div>
+          <h3 class="timeline-title">Discovery</h3>
+          <p class="timeline-text">Finding light in the scripture and beginning your spiritual journey with faith.</p>
+        </div>
+        <div class="timeline-icon">📖</div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">Day 7</div>
+          <h3 class="timeline-title">Growth</h3>
+          <p class="timeline-text">Deepening your understanding and connection through daily reflection.</p>
+        </div>
+        <div class="timeline-icon">🌱</div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">Day 30</div>
+          <h3 class="timeline-title">Transformation</h3>
+          <p class="timeline-text">Experiencing renewed purpose and clarity through divine wisdom.</p>
+        </div>
+        <div class="timeline-icon">✨</div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">Ongoing</div>
+          <h3 class="timeline-title">Radiance</h3>
+          <p class="timeline-text">Sharing your light and inspiring others on their spiritual path.</p>
+        </div>
+        <div class="timeline-icon">🌟</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Prayer Request Section -->
+  <section id="prayer-section" class="prayer-section reveal">
+    <div class="prayer-container">
+      <h2 class="prayer-title">🙏 Prayer Requests</h2>
+      <p class="prayer-subtitle">Share your heart with our community. We believe in the power of prayer.</p>
+      
+      <form id="prayer-form" onsubmit="submitPrayer(event)">
+        <div class="form-group">
+          <label class="form-label" for="prayer-name">Your Name</label>
+          <input type="text" class="form-input" id="prayer-name" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="prayer-email">Email (Optional)</label>
+          <input type="email" class="form-input" id="prayer-email">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="prayer-request">Your Prayer Request</label>
+          <textarea class="form-textarea" id="prayer-request" required></textarea>
+        </div>
+        
+        <button type="submit" class="form-submit">
+          Send Prayer Request
+        </button>
+      </form>
+      
+      <div class="form-success" id="prayer-success">
+        <i class="fas fa-check-circle"></i> Your prayer has been received! May you be blessed. 🙏
+      </div>
+    </div>
+  </section>
+  
+  <!-- Email Capture Modal -->
+  <div class="email-modal-overlay" id="emailModal">
+    <div class="email-modal">
+      <button class="email-modal-close" onclick="closeEmailModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="email-modal-content" id="emailModalContent">
+        <div class="email-modal-icon">📖✨</div>
+        <h2 class="email-modal-title">Stay Connected with the Word</h2>
+        <p class="email-modal-text">
+          Receive daily scripture inspiration, prayers, and spiritual guidance delivered to your inbox.
+        </p>
+        <div class="email-modal-verse">
+          "Heaven and earth will pass away, but my words will never pass away."<br>
+          <strong>— Matthew 24:35</strong>
+        </div>
+        
+        <form class="email-modal-form" id="emailCaptureForm" onsubmit="submitEmailCapture(event)">
+          <input 
+            type="text" 
+            class="email-modal-input" 
+            id="emailName" 
+            placeholder="Your Name" 
+            required
+          >
+          <input 
+            type="email" 
+            class="email-modal-input" 
+            id="emailAddress" 
+            placeholder="Your Email Address" 
+            required
+          >
+          <div class="email-modal-buttons">
+            <button type="submit" class="email-modal-submit">
+              <i class="fas fa-paper-plane"></i> Join Now
+            </button>
+            <button type="button" class="email-modal-decline" onclick="closeEmailModal()">
+              No Thanks
+            </button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="email-modal-success" id="emailModalSuccess">
+        <div class="email-success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3 class="email-success-title">Welcome to Our Community! 🙏</h3>
+        <p class="email-success-text">
+          Thank you for joining us! You'll receive your first daily scripture inspiration soon.<br><br>
+          May you be blessed on your spiritual journey.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="footer-text">
+        Made with <span class="footer-heart">♥</span> by Scriptures Keepr<br>
+        © 2025 All Rights Reserved | Spreading Divine Light
+      </p>
+    </div>
+  </footer>
+  
+  <script>
+    // ═══════════════════════════════════════════════
+    // CUSTOM CURSOR
+    // ═══════════════════════════════════════════════
+    const cursor = document.getElementById('cursor-glow');
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * 0.2;
+      cursorY += (mouseY - cursorY) * 0.2;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    
+    // Cursor hover effect
+    document.querySelectorAll('button, a, .verse-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+    
+    // ═══════════════════════════════════════════════
+    // READING PROGRESS BAR
+    // ═══════════════════════════════════════════════
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-bar').style.width = scrolled + '%';
+      
+      // Show/hide scroll to top button
+      const scrollTopBtn = document.getElementById('scroll-top');
+      if (winScroll > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+    
+    // ═══════════════════════════════════════════════
+    // PARTICLE SYSTEM
+    // ═══════════════════════════════════════════════
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    
+    const particles = [];
+    const particleCount = 50;
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = this.getRandomColor();
+      }
+      
+      getRandomColor() {
+        const colors = ['#c4b5fd', '#7dd3fc', '#6ee7b7', '#fda4af', '#f5d0fe'];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+      
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+        
+        // Move towards mouse
+        const dx = mouseX - this.x;
+        const dy = mouseY - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 150) {
+          this.x -= dx * 0.01;
+          this.y -= dy * 0.01;
+        }
+      }
+      
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+    
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach((particle, index) => {
+        particle.update();
+        particle.draw();
+        
+        // Connect nearby particles
+        particles.slice(index + 1).forEach(otherParticle => {
+          const dx = particle.x - otherParticle.x;
+          const dy = particle.y - otherParticle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 100) {
+            ctx.strokeStyle = `rgba(196, 181, 253, ${0.2 - distance / 500})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(otherParticle.x, otherParticle.y);
+            ctx.stroke();
+          }
+        });
+      });
+      
+      requestAnimationFrame(animateParticles);
+    }
+    
+    animateParticles();
+    
+    // ═══════════════════════════════════════════════
+    // THEME TOGGLE
+    // ═══════════════════════════════════════════════
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    
+    // ═══════════════════════════════════════════════
+    // SCROLL FUNCTIONS
+    // ═══════════════════════════════════════════════
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // ═══════════════════════════════════════════════
+    // SCROLL REVEAL ANIMATION
+    // ═══════════════════════════════════════════════
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    function checkReveal() {
+      revealElements.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 150;
+        
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
+    
+    // ═══════════════════════════════════════════════
+    // SCRIPTURE ROTATOR
+    // ═══════════════════════════════════════════════
+    const verses = [
+      {
+        text: '"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."',
+        ref: '— Jeremiah 29:11'
+      },
+      {
+        text: '"Be still and know that I am God."',
+        ref: '— Psalm 46:10'
+      },
+      {
+        text: '"I can do all things through Christ who strengthens me."',
+        ref: '— Philippians 4:13'
+      },
+      {
+        text: '"The Lord your God is with you wherever you go."',
+        ref: '— Joshua 1:9'
+      },
+      {
+        text: '"Trust in the Lord with all your heart and lean not on your own understanding."',
+        ref: '— Proverbs 3:5'
+      },
+      {
+        text: '"She is clothed with strength and dignity, and she laughs without fear of the future."',
+        ref: '— Proverbs 31:25'
+      },
+      {
+        text: '"Come to me, all you who are weary and burdened, and I will give you rest."',
+        ref: '— Matthew 11:28'
+      },
+      {
+        text: '"He heals the brokenhearted and binds up their wounds."',
+        ref: '— Psalm 147:3'
+      }
+    ];
+    
+    let currentVerseIndex = 0;
+    
+    function newVerse() {
+      const textEl = document.getElementById('sc-text');
+      const refEl = document.getElementById('sc-ref');
+      
+      textEl.style.opacity = '0';
+      refEl.style.opacity = '0';
+      
+      setTimeout(() => {
+        currentVerseIndex = (currentVerseIndex + 1) % verses.length;
+        textEl.textContent = verses[currentVerseIndex].text;
+        refEl.textContent = verses[currentVerseIndex].ref;
+        
+        textEl.style.transition = 'opacity 0.5s';
+        refEl.style.transition = 'opacity 0.5s';
+        textEl.style.opacity = '1';
+        refEl.style.opacity = '1';
+      }, 300);
+    }
+    
+    // Auto-rotate verses every 8 seconds
+    setInterval(newVerse, 8000);
+    
+    // ═══════════════════════════════════════════════
+    // VERSE SEARCH
+    // ═══════════════════════════════════════════════
+    const verseDatabase = [
+      { text: 'For I know the plans I have for you', ref: 'Jeremiah 29:11', tags: ['hope', 'future', 'plans'] },
+      { text: 'Be still and know that I am God', ref: 'Psalm 46:10', tags: ['peace', 'trust', 'faith'] },
+      { text: 'I can do all things through Christ', ref: 'Philippians 4:13', tags: ['strength', 'courage', 'faith'] },
+      { text: 'The Lord is my shepherd', ref: 'Psalm 23:1', tags: ['guidance', 'protection', 'comfort'] },
+      { text: 'Trust in the Lord with all your heart', ref: 'Proverbs 3:5', tags: ['trust', 'faith', 'wisdom'] },
+      { text: 'She is clothed with strength and dignity', ref: 'Proverbs 31:25', tags: ['strength', 'dignity', 'courage'] },
+      { text: 'Love is patient, love is kind', ref: '1 Corinthians 13:4', tags: ['love', 'patience', 'kindness'] },
+      { text: 'Fear not, for I am with you', ref: 'Isaiah 41:10', tags: ['courage', 'comfort', 'strength'] }
+    ];
+    
+    function searchVerses() {
+      const query = document.getElementById('verse-search').value.toLowerCase();
+      const resultsContainer = document.getElementById('search-results');
+      
+      if (!query) {
+        resultsContainer.innerHTML = '';
+        return;
+      }
+      
+      const results = verseDatabase.filter(verse => 
+        verse.text.toLowerCase().includes(query) ||
+        verse.ref.toLowerCase().includes(query) ||
+        verse.tags.some(tag => tag.includes(query))
+      );
+      
+      resultsContainer.innerHTML = results.map(verse => `
+        <div class="search-result-card fade-in">
+          <p class="verse-text">${verse.text}</p>
+          <p class="verse-ref">${verse.ref}</p>
+        </div>
+      `).join('') || '<p style="text-align: center; color: var(--violet);">No verses found. Try searching for "hope", "strength", or "peace".</p>';
+    }
+    
+    document.getElementById('verse-search').addEventListener('input', searchVerses);
+    
+    // ═══════════════════════════════════════════════
+    // PRAYER FORM SUBMISSION
+    // ═══════════════════════════════════════════════
+    function submitPrayer(e) {
+      e.preventDefault();
+      
+      const form = document.getElementById('prayer-form');
+      const success = document.getElementById('prayer-success');
+      
+      // Here you would typically send the data to a server
+      // For now, we'll just show the success message
+      
+      form.style.display = 'none';
+      success.style.display = 'block';
+      
+      setTimeout(() => {
+        form.reset();
+        form.style.display = 'block';
+        success.style.display = 'none';
+      }, 5000);
+    }
+    
+    // ═══════════════════════════════════════════════
+    // KEYBOARD SHORTCUTS
+    // ═══════════════════════════════════════════════
+    document.addEventListener('keydown', (e) => {
+      // Ctrl/Cmd + K: Focus search
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        document.getElementById('verse-search').focus();
+      }
+      
+      // Escape: Clear search
+      if (e.key === 'Escape') {
+        document.getElementById('verse-search').value = '';
+        document.getElementById('search-results').innerHTML = '';
+      }
+    });
+    
+    // ═══════════════════════════════════════════════
+    // CONSOLE MESSAGE
+    // ═══════════════════════════════════════════════
+    console.log('%c✨ Scriptures Keepr', 'font-size: 24px; font-weight: bold; color: #bf00ff;');
+    console.log('%cWelcome to your Divine Sanctuary! 🙏', 'font-size: 14px; color: #7dd3fc;');
+    
+    // ═══════════════════════════════════════════════
+    // EMAIL CAPTURE MODAL
+    // ═══════════════════════════════════════════════
+    function showEmailModal() {
+      // Check if user has already seen or closed the modal
+      if (sessionStorage.getItem('emailModalSeen') || localStorage.getItem('emailSubscribed')) {
+        return;
+      }
+      
+      const modal = document.getElementById('emailModal');
+      modal.classList.add('show');
+      sessionStorage.setItem('emailModalSeen', 'true');
+      
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeEmailModal() {
+      const modal = document.getElementById('emailModal');
+      modal.classList.remove('show');
+      
+      // Re-enable body scroll
+      document.body.style.overflow = '';
+    }
+    
+    function submitEmailCapture(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('emailName').value;
+      const email = document.getElementById('emailAddress').value;
+      
+      // Here you would typically send the data to your server or email service
+      // For now, we'll just show the success message
+      console.log('Email captured:', { name, email });
+      
+      // Hide the form and show success message
+      document.getElementById('emailModalContent').style.display = 'none';
+      document.getElementById('emailModalSuccess').classList.add('show');
+      
+      // Store that user has subscribed
+      localStorage.setItem('emailSubscribed', 'true');
+      
+      // Auto-close modal after 4 seconds
+      setTimeout(() => {
+        closeEmailModal();
+        // Reset modal for next time (though it won't show again due to localStorage)
+        setTimeout(() => {
+          document.getElementById('emailModalContent').style.display = 'block';
+          document.getElementById('emailModalSuccess').classList.remove('show');
+          document.getElementById('emailCaptureForm').reset();
+        }, 500);
+      }, 4000);
+    }
+    
+    // Close modal when clicking outside of it
+    document.getElementById('emailModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeEmailModal();
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('emailModal');
+        if (modal.classList.contains('show')) {
+          closeEmailModal();
+        }
+      }
+    });
+    
+    // Show email modal after 10 seconds
+    setTimeout(showEmailModal, 10000);
+  </script>
+</body>
+</html>
